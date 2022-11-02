@@ -1,0 +1,134 @@
+{% extends 'dash.htm'%}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Prediction</title>
+    <script>
+
+
+    </script>
+    <style>
+        .performance{
+            width: 700px;
+            margin-top: 30px;
+            margin-left: 250px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- As a heading -->
+
+
+    <!--Body-->
+
+    <div class="performance">
+        <div class="shadow p-3 mb-0 bg-body rounded">
+            <div class="container">
+                <form action="result" method='post'>
+                    {% csrf_token %}
+                    <div class="ptitle">
+                        <h1>Predict</h1>
+                        <p>Predict your next Semister result</p>
+                        <hr><br>
+                    </div>
+                    <div class="pform">
+                        <label for="exampleInputEmail1" class="form-label"><b>Name:</b></label>
+                        <input style="margin-left: 190px;width: 250px;margin-top: -39.5px;" type="text"
+                            class="form-control" id="name" aria-describedby="emailHelp" name="name" required><br>
+                        <label for="Course" class="form-label"><b>Enter your Course:</b></label>
+                        <select style="margin-left: 190px;width: 250px;margin-top: -39.5px;" name="Course"
+                            class="form-control">
+                            <option value="volvo">Computer</option>
+                            <option value="saab">IT</option>
+                            <option value="opel">Mechanical</option>
+                            <option value="audi">Civil</option>
+                        </select><br>
+                        <label class="form-label"><b>Division:</b></label>
+                        <input style="margin-left: 190px;width: 250px;margin-top: -39.5px;" type="text" class="form-control" name="Division" required><br>
+                        {% comment %} <label class="my-2"><b>Abscent in lectures</b></label>
+                        <input type="text" name="absences" class="mx-2 rounded-pill" required>
+                        <br> {% endcomment %}
+                        <label class="form-label"><b>Sem 1 CGPA:</b></label>
+                        <input style="margin-left: 190px;width: 250px;margin-top: -39.5px;" type="text" name="Exam1" class="form-control" required><br>
+                        <label class="form-label"><b>Sem 2 CGPA:</b></label>
+                        <input style="margin-left: 190px;width: 250px;margin-top: -39.5px;" type="text" name="Exam2" class="form-control" required>
+                        <br>
+                        <label class="form-label"><b>Study Hours:</b></label>
+                        <input style="margin-left: 190px;width: 250px;margin-top: -39.5px;" type="text"  name="studytime" class="form-control" required>
+                        <br>
+                        {% comment %} Free Time after college {% endcomment %}
+                        <label for="freetime" class="form-label"><b>Freetime After College:</b></label>
+                        <select name="freetime" style="margin-left: 190px;width: 250px;margin-top: -39.5px;" class="form-control">
+                            <option value=5>5 Very High</option>
+                            <option value=4>4 High</option>
+                            <option value=3>3 Average</option>
+                            <option value=2>2 Low</option>
+                            <option value=1>1 very Low</option>
+                        </select>
+                        <br>
+                        {% comment %} traveltime {% endcomment %}
+                        <label for="traveltime" class="form-label"><b>Travel Time:</b></label>
+                        <select name="traveltime" style="margin-left: 190px;width: 250px;margin-top: -39.5px;" class="form-control">
+                            <option value=4>1 - 15 min or less </option>
+                            <option value=3>2 - 15 to 30 min</option>
+                            <option value=2>3 - 30 min. to 1 hour</option>
+                            <option value=1>4 - 1 hour or more</option>
+                        </select>
+                        <br>
+                        {% comment %} failures {% endcomment %}
+
+                        {% comment %} <label for="failures" class="form-label"><b>Previous Semister's k.t.</b></label>
+                        <select name="failures" style="margin-left: 190px;width: 250px;margin-top: -39.5px;" class="form-control">
+                            <option value=0>0</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>more than 2</option>
+                        </select>
+                        <br> {% endcomment %}
+            
+                        {% comment %} Health {% endcomment %}
+            
+                        <label for="health" class="form-label"><b>Health</b></label>
+                        <select name="health" style="margin-left: 190px;width: 250px;margin-top: -39.5px;" class="form-control">
+                            <option value=5>1- Very Good</option>
+                            <option value=4>2- Bad</option>
+                            <option value=3>3- Average</option>
+                            <option value=2>4- Good</option>
+                            <option value=1>5- Very Bad</option>
+            
+                        </select>
+                        <br>
+            
+                        <hr>
+
+                        <button type="submit" class="btn btn-info rounded-pill" style="margin-left: 270px;">Submit</button>
+                        
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+{% 	endblock body %}

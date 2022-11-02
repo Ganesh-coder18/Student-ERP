@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    
+	<title></title>
+	
+
+    <script src="/studenterp/home/js/navbar.js"></script>
+	
+</head>
+<body>
+	
+	<div class="shadow p-3 mb-3 bg-white rounded">
+		<div class="img" style="float: left;margin-top: -45px;">
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_nIhxTu.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+		</div>
+		<span style="float: left;margin-top: 15px;margin-right: 100px;font-family: sans-serif;font-weight: 1000;font-size: 25px;">STUDENT ERP</span>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<div class="container-fluid">
+				<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto mb-5 mb-lg-0">
+						<li class="nav-item">
+							<a class="btn btn-outline-primary" href="/"  align="center" style="border-radius: 70px;margin-left: 5px;">Home</a>
+			            </li>
+						<li class="nav-item">
+							<a class="btn btn-outline-primary" href="/Login" align="center" style="border-radius: 70px;margin-left: 5px;">Login</a>
+			            </li>
+			            <li class="nav-item">
+							<span><a class="btn btn-outline-primary" href="/Signup" align="center" style="border-radius: 70px;margin-left: 5px;">Signup</a></span>
+			            </li>
+						<li class="nav-item">
+				            <a class="btn btn-outline-primary" href="admin/"  align="center" style="border-radius: 70px;margin-left: 5px;">Admin</a>
+			            </li>
+			        </ul>
+		        </div>
+		    </div>
+	    </nav>
+	</div>
+	
+    {% block body  %}
+    {% endblock body %}
+
+    </body>
+</html>

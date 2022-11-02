@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  
+    <style>
+        body{
+            background-color: #4e73df;
+        }
+        .result{
+            width: 1200px;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+      <!--link-->
+    
+    <div class="result">
+        <div class="shadow p-3 mb-0 bg-body rounded">
+            <div class="container">
+                <a href="/studentperform">
+                    <i class="far fa-arrow-alt-circle-left" align="right" style="font-size: 25px;"></i>
+                </a>
+                <center><h1>Result</h1><br>
+                <div class="student">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h3 class="card-title">Student Result</h3>
+                          <h6 class="card-subtitle mb-2 text-muted">By prediction</h6>
+                          <h5 class="card-text">Sem 3 score is {{score}}</h5>
+                          <h5 class="card-text">percentage is {{percent}}%</h5>
+                        </div>
+                                             
+                    </div>
+                    <div class="graph" style="margin-top: -40px;">
+                        {% comment %} {% if chart %}
+                    <img src="data:image/png;base64,{{chart|safe}}"
+                    {% endif %} {% endcomment %}
+
+                        <img src="static\images\chart.jpg" class="img" alt="" />
+                        {% comment %} <img src='../static/images/barchart.jpg' ></img> {% endcomment %}
+                                                
+                    </div> 
+                </div>
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

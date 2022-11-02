@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		font-family: "Roboto";
+        
+	}
+
+	.right_area .Logout_btn{
+		height: 30px;
+		background-color: #1DC4E7;
+		text-decoration: none;
+		font-size: 18px;
+		font-weight: 1000;
+		float: right;
+		width: 70px;
+		border-radius: 4px;
+		margin-right: 30px;
+		border: 2px;
+		color: white;
+		transition: 0.5s;
+		margin-top: 5px;
+		transition-property: background-color;
+	}
+
+	.right_area .Logout_btn:hover{
+		background-color: royalblue;
+	}
+	
+	.sidebar{
+		background-color: rgb(0, 79, 255);
+		margin-top: 0px;
+		padding-top: 30px;
+		position: fixed;
+		left: 0;
+		width: 250px;
+		height: 100%;
+		transition: 0.5s;
+		transition-property: left;
+		
+		
+	}
+
+	.sidebar .profile_img{
+		width: 120px;
+		height: 120px;
+		border-radius: 120px;
+	}
+
+	.sidebar a{
+		color: white;
+		display: block;
+		width: 100%;
+		line-height: 60px;
+		text-decoration: none;
+		padding-left: 40px;
+		box-sizing: border-box;
+	    transition: 0.5s;
+	    transition-property: background-color;
+	    padding-bottom: 10px;
+
+	}
+
+	.sidebar a:hover{
+		background-color: white;
+		color: rgb(0, 79, 255);
+
+	}
+
+	.sidebar i{
+		padding-right: 10px;
+		font-size: 20px;
+		padding-bottom: 10px;
+	}
+
+	.sidebar span{
+		font-size: 20px;
+		padding-bottom: 10px;
+
+	}
+
+	.sidebar h3{
+		font-size: 20px;
+		font-weight: 900;
+		color:black;
+		padding-top: -5px;
+	}
+
+	label #sidebar_btn{
+		z-index: 0;
+		color:black;
+		position: fixed;
+		cursor: pointer;
+		left: 280px;
+		font-size: 20px;
+		margin-left: 1px;
+		margin-top: 5px;
+		transition: 0.5s;
+		transition-property: background-color;
+    }
+
+    label #sidebar_btn:hover{
+    	color: royalblue;
+    }
+
+    #check:checked ~ .sidebar{
+    	left: -190px;
+    }
+    
+    #check:checked ~ .sidebar a span{
+    	display: none;
+    }
+	#check:checked ~ .sidebar hr{
+    	display: none;
+    }
+
+    #check:checked ~.sidebar a{
+    	font-size: 20px;
+    	margin-left: 170px;
+    	width: 80px;
+    }
+
+    #check{
+    	display: none;
+    }
+    .navs{
+		
+		height: 60px;
+	}
+    .navs span{
+		margin-left: 40px;
+	}
+
+</style>
+</head>
+<body>
+
+	<input type="checkbox" id="check">
+	
+   <div class="navs" style="background-color: rgb(240, 240, 240);"> 
+	<span style="float: left;margin-top: 15px;margin-right: 100px;font-family: sans-serif;font-weight: 1000;font-size: 25px;">STUDENT ERP</span>
+	  
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto mb-5 mb-lg-0">
+					<li class="nav-item">
+						<label for="check">
+							<i class="fas fa-bars" id="sidebar_btn"></i>
+						</label>
+					</li>
+					<li class="nav-item">
+						<div class="right_area">
+							<a href="/logout" class="Logout_btn" align="center">Logout</a>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	</div>
+
+    <div class="sidebar">
+    	
+    	<a href="/viewprofile" style="text-decoration: none;"><i class="fas fa-user-circle"></i><span>User Profile</span></a>
+    	<a href="/Calender" style="text-decoration: none;"><i class="far fa-calendar"></i><span>Time Table</span></a>
+    	<a href="/book" style="text-decoration: none;"><i class="fas fa-book"></i><span>Notes</span></a>
+    	<a href="/Quiz" style="text-decoration: none;"><i class="far fa-clipboard"></i><span>Test</span></a>
+		<a href="/view_score" style="text-decoration: none;"><i class="far fa-clipboard"></i><span>Score Board</span></a>
+    	<a href="#" style="text-decoration: none;"><i class="fas fa-chart-line"></i><span>Attendance</span></a>
+        <a href="/notice" style="text-decoration: none;"><i class="fas fa-bell"></i><span>Notification</span></a>
+		<a href="/notice" style="text-decoration: none;"><i class="fas fa-bell"></i><span>Student Performance</span></a>
+        
+
+
+    </div>
+	{% block body  %}
+    {% endblock body %}
+</body>
+</html>

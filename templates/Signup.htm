@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+	<script type="text/javascript"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+.form-title{
+    font-weight: 1000;
+    font-family: "Poppins", sans-serif;  
+}
+
+.fname1{
+  margin-left: 29px;
+  top: 1px;
+  line-height: 30px;
+  padding: 0px 10px;
+  font-size: 16px;
+  width: 300px;
+  text-align: center;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+}
+.fname1:focus{
+    outline: none;
+}
+.all{
+    margin-top: 50px;
+}
+
+.username i{
+    position: absolute;
+    margin-left: 25px;
+    padding: 5px;
+
+}
+.reg-form1{
+    margin-left: 0;
+}
+
+.img{
+    margin-top: -310px;
+    float: right;
+    
+}
+.reg{
+    margin-left: 400px;
+    align-content: center;
+    height: 400px;
+    width: 700px;
+}
+.login{
+    margin-left: 425px;
+}
+.butt{
+    margin-top: -15px;
+    margin-left: 100px;
+}
+.butt button{
+    font-family: Poppins,sans-serif;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 150px;
+  color: white;
+}
+    </style>
+
+    <script>
+        function validateForm() {
+          let fname = document.forms["signupform"]["fname"].value;
+          let lname = document.forms["signupform"]["lname"].value;
+          let email = document.forms["signupform"]["email"].value;
+          let grno = document.forms["signupform"]["grno"].value;
+          let password = document.forms["signupform"]["password"].value;
+          let cpassword = document.forms["signupform"]["cpassword"].value;
+          if (fname == "") {
+            alert("Please enter your first name");
+            return false;
+          }
+          else if (lname == ""){
+              alert("Please enter your last name")
+              return false
+          }
+          else if (email == ""){
+              alert("Please enter your email id")
+              return false
+          }
+          else if (grno == ""){
+              alert("Please enter your college GR no")
+              return false
+          }
+          else if (password == ""){
+              alert("Please enter your password")
+              return false
+          }
+          else if (cpassword == ""){
+              alert("Please enter your confirm password")
+              return false
+          }
+          else if (password != cpassword){
+              alert("password doesn't match")
+              return false
+          }
+          else{
+              alert("Rgistration Done")
+              return true
+          }
+        }
+    </script>
+</head>
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {% endif %}
+    <div class="all">
+        <section class="reg" >
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <div class="container mt-0">
+                    <div class="reg-content">
+                        <div class="reg-form0">
+                            <h2 class="form-title" align="left">Sign up</h2><br/>
+                            <form class="reg-form1" id="reg-form1" name="signupform" onsubmit="return validateForm()" method="post" action="/Signup" align="left">  {% csrf_token %}
+                                <div class="username">
+                                    <i class="fas fa-user"></i>
+                                    <input placeholder="Enter First Name" type="fname"  id="fname" name="fname" class="fname1" />
+                                </div><br/>
+                                <div class="username">
+                                    <i class="fas fa-user"></i>
+                                    <input placeholder="Enter Last Name" type="lname" id="lname"  name="lname" class="fname1" />
+                                </div><br/>
+                                <div class="username">
+                                    <i class="fas fa-envelope"></i>
+                                    <input placeholder="Email Id" type="email" id="email"  name="email" class="fname1" />
+                                </div><br/>
+                                <div class="username">
+                                    <i class="fas fa-id-badge"></i>
+                                    <input placeholder="GR NO" type="grno" id="grno"   name="grno" class="fname1" />
+                                </div><br/>
+                                <div class="username">
+                                    <i class="fas fa-lock"></i>
+                                    <input placeholder="password" type="password" id="password"  name="password" class="fname1" />
+                                </div><br/>
+                                <div class="username">
+                                    <i class="fas fa-lock"></i>
+                                    <input placeholder="Confirm Password" type="password" id="cpassword" name="cpassword" class="fname1" />
+                                </div><br/>
+                                <div class="img" align="left">
+                                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_1g2qhg7w.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                                </div>
+                                <div class="login">
+                                    <span class="forget">
+                                        <a href="/Login" style="text-decoration: none;">
+                                            <small>Already Registered?</small>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="butt">
+                                    <button type="submit" name="Signup" value="Submit" class="btn btn-primary">Signup</button>
+                                </div>
+                            </form>
+                            <br/><br/>	
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+</body>
+</html>
+
+
